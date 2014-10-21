@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby
+
+Dir.chdir ENV['TM_PROJECT_DIRECTORY'] || ENV['TM_DIRECTORY']
+
+# def set_marks(offences)
+#   args = [ "--clear-mark=#{mark}" ]
+#
+#   unless offences.empty?
+#     args &lt;&lt; "--set-mark=error:\"#{offence}\""
+#     lines.each { |n| args &lt;&lt; "--line=#{n}" }
+#   end
+#
+#   args &lt;&lt; ENV['TM_FILEPATH']
+#
+#   system(ENV['TM_MATE'], *args)
+# end
+
+lint_cmd = '"$TM_RUBY" "$TM_BUNDLE_SUPPORT/run-rubocop.rb"'
+
+puts `#{lint_cmd}`
+
+# offences = {}
+#
+# open "|#{lint_cmd}" do |io|
+#   while line = io.gets
+#     if line =~ /^(.*):([0-9]*):([0-9]*):(.*)/
+#       offences[$2] ||= []
+#       offences[$2] &lt;&lt; $4
+#     end
+#   end
+# end
+#
+# # puts offences.values
+#
+# puts offences.map { |line, reasons| reasons.join '\n' }</string>
+	<key>input</key>
+	<string>none</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>^@R</string>
+	<key>name</key>
+	<string>Run Rubocop</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>html</string>
+	<key>outputLocation</key>
+	<string>newWindow</string>
+	<key>scope</key>
+	<string>source.ruby</string>
+	<key>uuid</key>
+	<string>3C60B0F6-5462-4B4F-9B1F-5CF1F5292518</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>
