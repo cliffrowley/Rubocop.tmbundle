@@ -7,7 +7,7 @@
 	<key>contactName</key>
 	<string>Cliff Rowley</string>
 	<key>description</key>
-	<string>New shiny bundle for X.</string>
+	<string>A dead simple TextMate bundle to run Rubocop with the current file.</string>
 	<key>name</key>
 	<string>Rubocop</string>
 	<key>uuid</key>
